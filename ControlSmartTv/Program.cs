@@ -30,7 +30,7 @@ namespace ControlSmartTv {
 
             //parse userinput to int for boolean comparison as integer  read will give ascii code
             //parsing after getting value is simpler 
-            if(Int32.Parse(userInput) > 0) {
+            if(Int32.Parse(userInput) ==  1) {
 
                 //pass ICollection as parameter to television class
                 tv.ChannelList(currentPrograms);
@@ -41,7 +41,14 @@ namespace ControlSmartTv {
             Console.WriteLine("\nValitse ohjelma mitä haluat katsoa: ");
             userInput = Console.ReadLine();
 
-            }  
+            //modify else statement that it doesn't crash if value is something else than 1 - 5
+            if(Int32.Parse(userInput) > 0) {
+                tv.Channel = Int32.Parse(userInput);
+                tv.ChangeChannel(currentPrograms);
+            } else {
+                Environment.Exit(0);
+            }
+        }  
     }
 }
  

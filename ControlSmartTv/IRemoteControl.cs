@@ -10,7 +10,7 @@ namespace ControlSmartTv {
 
         int Channel { get; set; }
         
-        void ChangeChannel();
+        void ChangeChannel(ICollection<KeyValuePair<int, string>> programs);
 
         void ChannelList(ICollection<KeyValuePair<int, string>> programs);
         

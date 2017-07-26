@@ -8,12 +8,17 @@ using System.Threading.Tasks;
 namespace ControlSmartTv {
     public class Television : IRemoteControl {
 
-        private int currentChannel;
-        private int newChannel;
-
         public int Channel { get; set; }
 
-        public void ChangeChannel() {
+        public void ChangeChannel(ICollection<KeyValuePair<int, string>> programs) {
+            //use LINQ to get value from programs keyvaluepair collection 
+            var selectedProgram = from val in programs where val.Key == Channel select val.Value;
+
+            //get matched program from variable and output to console
+            foreach(var match in selectedProgram) {
+                Console.WriteLine("Katselu aloitettu ohjelmalle: " + match);
+                Console.Write("");
+            }
         }
 
 
