@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ControlSmartTv {
     interface IRemoteControl {
 
-        int Channel { get; set; }
+        int Channel { get; set; } 
         
         void ChangeChannel(ICollection<KeyValuePair<int, string>> programs);
 
