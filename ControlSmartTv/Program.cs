@@ -9,7 +9,7 @@ namespace ControlSmartTv {
         static void Main(string[] args) {
 
             //create and populate ICollection for programs
-            ICollection<KeyValuePair<int, String>> currentPrograms = new Dictionary<int, String>();
+            ICollection<KeyValuePair<int, String>> currentPrograms = new Dictionary<int, String>(); 
             currentPrograms.Add(new KeyValuePair<int, string>(1, "How i met your mother"));
             currentPrograms.Add(new KeyValuePair<int, string>(2, "The big bang theory"));
             currentPrograms.Add(new KeyValuePair<int, string>(3, "Surffing"));
