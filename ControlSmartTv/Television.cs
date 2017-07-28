@@ -21,7 +21,6 @@ namespace ControlSmartTv {
             }
         }
 
-
         //get ICollection via parameter generated from main class
         //loop trough key value pairs and output to console
         public void ChannelList(ICollection<KeyValuePair<int, string>> currentPrograms) {

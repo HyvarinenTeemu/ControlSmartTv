@@ -8,6 +8,9 @@ namespace ControlSmartTv {
     public class Program {
         static void Main(string[] args) {
 
+            Television tv = new Television();
+            RemoteControlLogic logic = new RemoteControlLogic();
+
             //create and populate ICollection for programs
             ICollection<KeyValuePair<int, String>> currentPrograms = new Dictionary<int, String>(); 
             currentPrograms.Add(new KeyValuePair<int, string>(1, "How i met your mother"));
@@ -16,7 +19,7 @@ namespace ControlSmartTv {
             currentPrograms.Add(new KeyValuePair<int, string>(4, "motosport"));
             currentPrograms.Add(new KeyValuePair<int, string>(5, "Terminator"));
 
-            Television tv = new Television();
+            
             string userInput = "";
 
             Console.Write("Haluatko katsoa televisiota? Paina mitä tahansa numeroa laittaaksesi television päälle: ");
@@ -25,18 +28,9 @@ namespace ControlSmartTv {
             tv.Channel = Int32.Parse(userInput);
             tv.PowerOn();
 
-            Console.Write("Valitse no.1 jos haluat nähdä ohjelma listan, no.2 jos haluat sammuttaa television: ");
+            Console.Write("Valitse no.1 jos haluat nähdä ohjelma listan, no.2 äänenvoimakkuus, no.3 jos haluat sammuttaa television: ");
             userInput = Console.ReadLine();
-
-            //parse userinput to int for boolean comparison as integer  read will give ascii code
-            //parsing after getting value is simpler 
-            if(Int32.Parse(userInput) ==  1) {
-
-                //pass ICollection as parameter to television class
-                tv.ChannelList(currentPrograms);
-            } else {
-                Environment.Exit(0);
-            }
+            logic.ControlLogic(currentPrograms, userInput);
 
             Console.WriteLine("\nValitse ohjelma mitä haluat katsoa: ");
             userInput = Console.ReadLine();
