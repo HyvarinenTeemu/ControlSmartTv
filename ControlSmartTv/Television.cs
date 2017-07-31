@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 namespace ControlSmartTv {
     public class Television : IRemoteControl {
 
+        
+
         public int Channel { get; set; }
 
         public void ChangeChannel(ICollection<KeyValuePair<int, string>> programs) {
@@ -16,8 +18,7 @@ namespace ControlSmartTv {
 
             //get matched program from variable and output to console
             foreach(var match in selectedProgram) {
-                Console.WriteLine("Katselu aloitettu ohjelmalle: " + match);
-                Console.Write("");
+                Console.WriteLine("\nKatselu aloitettu ohjelmalle: " + match + "\n");
             }
         }
 
@@ -35,5 +36,7 @@ namespace ControlSmartTv {
         public void PowerOn() {
             Console.WriteLine("\nTelevisio on päällä");
         }
+
+     
     }    
 }

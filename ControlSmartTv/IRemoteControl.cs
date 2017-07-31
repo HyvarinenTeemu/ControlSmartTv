@@ -12,7 +12,6 @@ namespace ControlSmartTv {
         
         void ChangeChannel(ICollection<KeyValuePair<int, string>> programs);
 
-
         void ChannelList(ICollection<KeyValuePair<int, string>> programs);
         
         void PowerOn();

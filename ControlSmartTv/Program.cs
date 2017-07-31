@@ -18,7 +18,6 @@ namespace ControlSmartTv {
             currentPrograms.Add(new KeyValuePair<int, string>(3, "Surffing"));
             currentPrograms.Add(new KeyValuePair<int, string>(4, "motosport"));
             currentPrograms.Add(new KeyValuePair<int, string>(5, "Terminator"));
-
             
             string userInput = "";
 
@@ -27,10 +26,7 @@ namespace ControlSmartTv {
 
             tv.Channel = Int32.Parse(userInput);
             tv.PowerOn();
-
-            Console.Write("Valitse no.1 jos haluat nähdä ohjelma listan, no.2 äänenvoimakkuus, no.3 jos haluat sammuttaa television: ");
-            userInput = Console.ReadLine();
-            logic.ControlLogic(currentPrograms, userInput);
+            logic.ControlLogic(currentPrograms);            
 
             Console.WriteLine("\nValitse ohjelma mitä haluat katsoa: ");
             userInput = Console.ReadLine();
@@ -39,6 +35,7 @@ namespace ControlSmartTv {
             if(Int32.Parse(userInput) > 0) {
                 tv.Channel = Int32.Parse(userInput);
                 tv.ChangeChannel(currentPrograms);
+                logic.ControlLogic(currentPrograms);
             } else {
                 Environment.Exit(0);
             }
